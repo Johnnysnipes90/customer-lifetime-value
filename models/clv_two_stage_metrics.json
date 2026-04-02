@@ -1,0 +1,54 @@
+{
+  "baseline_metrics": {
+    "model": "DummyRegressor_mean",
+    "mae_raw": 1027.116370471742,
+    "rmse_raw": 5436.311137722947,
+    "r2_log": -2.0277700165882706e-05
+  },
+  "single_stage_metrics": {
+    "model": "XGBRegressor_single_stage",
+    "mae_raw": 800.20944740809,
+    "rmse_raw": 4325.249483514581,
+    "r2_log": 0.19148373646608596
+  },
+  "classifier_metrics": {
+    "model": "XGBClassifier_return_stage",
+    "roc_auc": 0.7161249012288494,
+    "accuracy": 0.6499102333931778,
+    "precision_class_0": 0.5381526104417671,
+    "recall_class_0": 0.6261682242990654,
+    "f1_class_0": 0.5788336933045356,
+    "precision_class_1": 0.7402597402597403,
+    "recall_class_1": 0.6647230320699709,
+    "f1_class_1": 0.7004608294930875
+  },
+  "conditional_regression_metrics": {
+    "model": "XGBRegressor_conditional",
+    "mae_raw": 852.6856159156978,
+    "rmse_raw": 4942.312926868842
+  },
+  "final_two_stage_metrics": {
+    "model": "Two_Stage_Expected_CLV",
+    "mae_raw": 599.4954550620171,
+    "rmse_raw": 2596.9626609354295
+  },
+  "feature_columns": [
+    "total_revenue",
+    "total_orders",
+    "total_items",
+    "avg_line_revenue",
+    "avg_unit_price",
+    "unique_products",
+    "unique_countries",
+    "customer_tenure_days",
+    "recency_days",
+    "avg_revenue_per_order",
+    "active_days",
+    "avg_days_between_orders",
+    "revenue_per_day",
+    "orders_per_day",
+    "recency_ratio",
+    "items_per_order"
+  ],
+  "final_prediction_formula": "P(return) * E(value | return)"
+}
