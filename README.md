@@ -6,7 +6,24 @@ This project builds a **production-grade machine learning system** to predict cu
 
 > **Expected CLV = P(Return) × E(Value | Return)**
 
-The system is designed to reflect how modern data science teams deploy real-world ML systems — combining **analytics, modeling, APIs, explainability, and deployment**.
+The system mirrors how real-world data teams deploy ML systems — combining:
+
+- data processing
+- feature engineering
+- machine learning
+- API deployment
+- explainability
+- interactive dashboards
+
+---
+
+## 🌐 Live Demo
+
+- 🔗 **API (FastAPI):**
+  https://customer-lifetime-value-system.onrender.com/docs
+
+- 📊 **Dashboard (Streamlit):**
+  _(Insert your Streamlit URL after deployment)_
 
 ---
 
@@ -18,13 +35,13 @@ Businesses need to answer:
 - How much revenue will they generate?
 - Where should we focus retention and marketing spend?
 
-Traditional CLV models are often inaccurate because they:
+Traditional CLV approaches fail because they:
 
 - ignore churn probability
-- treat all customers equally
+- assume uniform customer behavior
 - lack interpretability
 
-This project solves that by building a **probabilistic + conditional modeling system**.
+This project solves that using a **probabilistic + conditional modeling approach**.
 
 ---
 
@@ -34,15 +51,15 @@ This project solves that by building a **probabilistic + conditional modeling sy
 Raw Data → Feature Engineering → ML Models → API → Dashboard
 ```
 
-### Two-Stage Model
+### Two-Stage Modeling Strategy
 
-1. **Return Model (Classification)**
-   - Predicts probability a customer returns
+1️⃣ **Return Model (Classification)**
+Predicts probability that a customer returns
 
-2. **Value Model (Regression)**
-   - Predicts revenue conditional on return
+2️⃣ **Value Model (Regression)**
+Predicts expected revenue given the customer returns
 
-3. **Final Prediction**
+3️⃣ **Final Output**
 
 ```text
 Expected CLV = P(Return) × Predicted Value
@@ -54,21 +71,21 @@ Expected CLV = P(Return) × Predicted Value
 
 - ~540,000 transactions
 - ~4,300 customers
-- E-commerce retail dataset
+- UK-based e-commerce retail dataset
 
-### Features include:
+### Key Variables
 
-- transaction values
-- product variety
 - purchase frequency
-- recency & tenure
+- monetary value
+- product diversity
+- recency and tenure
 - behavioral aggregates
 
 ---
 
 ## ⚙️ Feature Engineering
 
-Built customer-level features such as:
+Key engineered features:
 
 - revenue_per_day
 - orders_per_day
@@ -77,7 +94,7 @@ Built customer-level features such as:
 - customer_tenure_days
 - avg_days_between_orders
 
-Strict **time-based split** prevents data leakage.
+✅ Strict **time-based split** ensures no data leakage
 
 ---
 
@@ -91,60 +108,78 @@ Strict **time-based split** prevents data leakage.
 ### Stage 2 — Conditional CLV
 
 - Model: XGBoost Regressor
-- Optimized with regularization
+- Regularized for stability
 
 ### Final System Performance
 
-- MAE: ~599
-- RMSE: ~2596
+- MAE: **~599**
+- RMSE: **~2596**
+
+👉 Significant improvement over single-stage modeling
 
 ---
 
 ## 🔍 Explainability (SHAP)
 
-The system includes **SHAP explainability** to understand:
+The system includes **SHAP explainability** to interpret predictions.
 
-- why a customer has high or low CLV
-- which features drive predictions
+### What it explains:
 
-Example insights:
+- drivers of predicted customer value
+- feature impact (increase vs decrease)
+- contribution magnitude
 
-- high revenue frequency → increases CLV
-- high recency → decreases CLV
-- strong engagement → boosts expected value
+### Example Insights:
+
+- High engagement → increases CLV
+- High recency → decreases CLV
+- Frequent purchasing → boosts expected value
 
 ---
 
 ## 🌐 API (FastAPI)
 
-Endpoints:
+### Endpoints
 
 - `/predict` → CLV prediction
 - `/explain` → SHAP explanation
-- `/health` → system status
+- `/health` → service status
 
-📎 Live API: _(insert Render URL)_
+### Example Response
+
+```json
+{
+  "return_probability": 0.84,
+  "predicted_value_if_return": 1016.57,
+  "expected_clv": 863.51
+}
+```
 
 ---
 
 ## 📊 Dashboard (Streamlit)
 
-Interactive UI to:
+Interactive interface to:
 
 - input customer features
-- view predictions
-- see SHAP explanations
-- segment customers
+- generate CLV predictions
+- visualize SHAP explanations
+- segment customers into value tiers
 
 ---
 
 ## 🐳 Docker
 
-Run entire system:
+Run full system locally:
 
 ```bash
 docker compose up --build
 ```
+
+Access:
+
+- API → http://localhost:8000/docs
+- Dashboard → http://localhost:8501
 
 ---
 
@@ -153,7 +188,7 @@ docker compose up --build
 GitHub Actions pipeline:
 
 - dependency validation
-- pipeline integrity check
+- pipeline sanity check
 - automated build verification
 
 ---
@@ -209,20 +244,20 @@ customer-lifetime-value/
 
 ---
 
-## 💡 Key Learnings
+## 💡 Key Takeaways
 
-- Production ML ≠ just modeling
+- Production ML goes beyond modeling
 - Two-stage modeling improves business realism
-- Explainability is critical for stakeholder trust
-- Deployment separates strong vs average data scientists
+- Explainability builds stakeholder trust
+- Deployment differentiates senior candidates
 
 ---
 
 ## 🔥 Future Improvements
 
-- Real-time streaming predictions
-- Model monitoring & drift detection
-- Feature store integration
+- Real-time prediction pipeline
+- model monitoring & drift detection
+- feature store integration
 - A/B testing framework
 
 ---
@@ -230,7 +265,7 @@ customer-lifetime-value/
 ## 👤 Author
 
 **John Olalemi**
-Data Scientist | ML Engineer
+Data Scientist | Machine Learning Engineer
 
 - GitHub: https://github.com/Johnnysnipes90
 - LinkedIn: https://www.linkedin.com/in/john-olalemi
