@@ -23,7 +23,6 @@ The system mirrors how real-world data teams deploy ML systems — combining:
   https://customer-lifetime-value-system.onrender.com/docs
 
 - 📊 **Dashboard (Streamlit):**
-  _(Insert your Streamlit URL after deployment)_
 
 ---
 
