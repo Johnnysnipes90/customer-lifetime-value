@@ -22,7 +22,7 @@ st.set_page_config(
     layout="wide",
 )
 
-DEFAULT_API_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
+DEFAULT_API_URL = "https://customer-lifetime-value-system.onrender.com"
 
 
 @st.cache_data
